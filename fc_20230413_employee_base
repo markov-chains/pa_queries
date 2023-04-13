@@ -33,6 +33,7 @@ EM.employee_id
 ,EM.cust3
 ,EM.termination_date
 ,EM.termination_vol_flag
+-- this is the name of the table
 FROM `brain-124028.dwh_employee.dim_employee` EM 
   LEFT JOIN `brain-124028.dwh_common.dim_job_profile`JP 
     ON JP.job_profile_id = EM.job_profile_id
