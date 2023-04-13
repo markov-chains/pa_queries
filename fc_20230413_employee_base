@@ -40,4 +40,5 @@ FROM `brain-124028.dwh_employee.dim_employee` EM
 WHERE 
 EM.employee_type NOT IN ('Intern','Subsidiary Employee','Temporary') 
 AND EM.worker_status = 'Active'
+AND REGEXP_CONTAINS((REGEXP_REPLACE(LOWER(EM.level), 'level ', '')),'7|8|8B|9|9B|10|11') 
 
