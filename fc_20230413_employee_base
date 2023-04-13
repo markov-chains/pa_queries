@@ -1,0 +1,43 @@
+SELECT 
+EM.employee_id
+,EM.business_title
+,EM.level
+,JP.job_profile_name 
+,JP.job_family_name 
+,JP.job_family_group
+,JP.s_ladder_flag
+,JP.support_flag
+,EM.hire_date
+,EM.original_hire_date 
+,EM.latest_hire_date 
+,EM.worker_active 
+,EM.worker_status
+,EM.employee_type
+,LOC.location_name
+,LOC.city
+,LOC.state
+,LOC.country_name
+,LOC.region
+,LOC.mega_region
+,EM.is_remote
+,EM.direct_reports_fte 
+,EM.last_promo_date
+,EM.level_tenure_months 
+,EM.uber_tenure_months
+,EM.tenure_grouped
+,EM.candidate_id
+,EM.primary_function 
+,EM.cust
+,EM.cust2 
+,EM.cust3
+,EM.termination_date
+,EM.termination_vol_flag
+FROM `brain-124028.dwh_employee.dim_employee` EM 
+  LEFT JOIN `brain-124028.dwh_common.dim_job_profile`JP 
+    ON JP.job_profile_id = EM.job_profile_id
+  LEFT JOIN `dwh_common.dim_location` LOC 
+    ON LOC.location_id = EM.office_id
+WHERE 
+EM.employee_type NOT IN ('Intern','Subsidiary Employee','Temporary') 
+AND EM.worker_status = 'Active'
+
