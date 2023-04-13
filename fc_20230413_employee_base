@@ -20,7 +20,8 @@ EM.employee_id
 ,LOC.region
 ,LOC.mega_region
 ,EM.is_remote
-,EM.direct_reports_fte 
+,EM.direct_reports_fte
+,EM.total_reports
 ,EM.last_promo_date
 ,EM.level_tenure_months 
 ,EM.uber_tenure_months
